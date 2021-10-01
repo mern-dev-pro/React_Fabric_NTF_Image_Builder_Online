@@ -1,0 +1,21 @@
+.toolbar {
+    min-width: 80px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+.toolbar-button {
+    border: none;
+    background-color: transparent;
+}
+.toolbar-button:hover {
+    background-color: #bbdefb;
+}
+#dropdown-basic::after {
+    content: none;
+}
+#dropdown-basic:focus{
+    outline: none;
+}
