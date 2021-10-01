@@ -9,6 +9,7 @@ import SprayIcon from '../assets/imgs/icons/Spray.svg';
 import ImageIcon from '../assets/imgs/icons/Image.svg';
 import EraseIcon from '../assets/imgs/icons/Eraser.svg';
 import ClearIcon from '../assets/imgs/icons/Clear.svg';
+import ShapeIcon from '../assets/imgs/icons/Shape.svg';
 import DownloadIcon from '../assets/imgs/icons/Download.svg'
 import { Dropdown, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -39,7 +40,7 @@ function ToolbarComponent() {
         },
         {
             name: "SHAPE",
-            icon: RectangleIcon,
+            icon: ShapeIcon,
             onClick: (type) => { setSelectedTool('SHAPE'); dispatch({type: 'SHAPE', color: color?.hex, shape: type}); } 
         },
         {
