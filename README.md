@@ -1,5 +1,5 @@
 <h2>React_Fabric_Web_Paint</h2>
-
+<img src="/Koala-Dev-dream/React_Fabric_Online_Drawer/blob/main/src/assets/readme/2021-10-01_18h17_00.png?raw=true" alt="2021-10-01_18h17_00.png">
 ## Available Scripts
 
 In the project directory, you can run:
