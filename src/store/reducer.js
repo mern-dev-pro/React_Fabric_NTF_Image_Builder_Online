@@ -70,7 +70,8 @@ function setReducer(state = { canvas: null, color:"#ff0000" }, action) {
                 return state;
             }
             state.canvas.isDrawingMode = true;
-            state.canvas.freeDrawingBrush = new fabric.SprayBrush(state.canvas);
+            // state.canvas.freeDrawingBrush = new fabric.SprayBrush(state.canvas);
+            state.canvas.freeDrawingBrush = new fabric.CircleBrush(state.canvas);
             state.canvas.freeDrawingBrush.color = action.color;
             state.canvas.freeDrawingBrush.width = 35;
             return { ...state };

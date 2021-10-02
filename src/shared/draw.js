@@ -17,6 +17,8 @@ export function AddRectFunc(canvas, color) {
 }
 export function AddTriangle(canvas, color) {
   var rect = new fabric.Triangle({
+    left: 150,
+    top: 150,
     width: 150,
     height: 100,
     fill: color,
@@ -31,6 +33,8 @@ export function AddTriangle(canvas, color) {
 }
 export function AddCircle(canvas, color) {
   var rect = new fabric.Circle({
+    left: 150,
+    top: 150,
     radius: 100,
     fill: color,
     stroke: color,
@@ -44,10 +48,10 @@ export function AddCircle(canvas, color) {
 }
 export function AddText(canvas, color) { 
   canvas.add(new fabric.IText('Type Here', { 
-        left: 50,
-        top: 100,
-        fontFamily: 'arial black',
-        fill: color,
-        fontSize: 50
+      left: 50,
+      top: 100,
+      fontFamily: 'arial black',
+      fill: color,
+      fontSize: 50
   }));
 }
