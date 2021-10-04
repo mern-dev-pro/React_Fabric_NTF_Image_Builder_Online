@@ -56,6 +56,11 @@ function ToolbarComponent() {
             type: "dropdown",
             items: [
                 {label: "Glasses", value: "GLASSES"},
+                {label: "Tobacco", value: "TOBACCO"},
+                {label: "Chain", value: "CHAIN"},
+                {label: "Cap_LA", value: "CAP_LA"},
+                {label: "Cap_Lakers", value: "CAP_LAKERS"},
+                {label: "Cap_NY", value: "CAP_NY"},
             ],
             onClick: (type) => { setSelectedTool('PROPS'); dispatch({type: 'PROPS', color: color?.hex, props: type}); } 
         },

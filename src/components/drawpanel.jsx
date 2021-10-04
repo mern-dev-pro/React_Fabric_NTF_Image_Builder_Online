@@ -12,8 +12,8 @@ const DrawPanelComponent = props => {
     canvas.setHeight(containerRef.current.offsetHeight);
     var center = canvas.getCenter();
     canvas.setBackgroundImage(DogImage, canvas.renderAll.bind(canvas), {
-      scaleX:1,
-      scaleY:1,
+      scaleX:0.7,
+      scaleY:0.7,
       top: center.top,
       left: center.left,
       originX: 'center',

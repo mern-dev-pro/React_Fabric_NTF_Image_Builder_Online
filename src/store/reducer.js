@@ -1,7 +1,12 @@
 import { fabric } from "fabric";
 import { combineReducers } from "redux";
 import { AddCircle, AddRectFunc, AddText, AddTriangle } from "../shared/draw";
-import GlassesIcon from '../assets/imgs/props/glass.svg'
+import GlassesIcon from '../assets/imgs/props/glass.svg';
+import TobaccoImage from '../assets/imgs/props/tobacco.svg';
+import ChainIcon from '../assets/imgs/props/chain.svg';
+import CapLaIcon from '../assets/imgs/props/cap-la.svg';
+import CapLakersIcon from '../assets/imgs/props/cap-lakers.svg';
+import CapNYIcon from '../assets/imgs/props/cap-ny.svg';
 
 function setReducer(state = { canvas: null, color:"#ff0000" }, action) {
     switch (action.type) {
@@ -43,10 +48,45 @@ function setReducer(state = { canvas: null, color:"#ff0000" }, action) {
                 case "GLASSES":
                     fabric.Image.fromURL(GlassesIcon, function(oImg) {
                         oImg.set({ left: 100, top: 100, angle: 10 });
-                        oImg.scale(5);
+                        oImg.scale(3);
                         state.canvas.add(oImg);  
                     });       
                     break;
+                case "TOBACCO":
+                    fabric.Image.fromURL(TobaccoImage, function(oImg) {
+                        oImg.set({ left: 100, top: 100, angle: -10 });
+                        oImg.scale(1);
+                        state.canvas.add(oImg);  
+                    });       
+                    break;
+                case "CHAIN":
+                    fabric.Image.fromURL(ChainIcon, function(oImg) {
+                        oImg.set({ left: 100, top: 100, angle: 10 });
+                        oImg.scale(1);
+                        state.canvas.add(oImg);  
+                    });       
+                    break;
+                case "CAP_LA":
+                    fabric.Image.fromURL(CapLaIcon, function(oImg) {
+                        oImg.set({ left: 100, top: 100, angle: 0 });
+                        oImg.scale(1);
+                        state.canvas.add(oImg);  
+                    });       
+                    break;
+                case "CAP_LAKERS":
+                    fabric.Image.fromURL(CapLakersIcon, function(oImg) {
+                        oImg.set({ left: 100, top: 100, angle: 0 });
+                        oImg.scale(1);
+                        state.canvas.add(oImg);  
+                    });       
+                    break; 
+                case "CAP_NY":
+                    fabric.Image.fromURL(CapNYIcon, function(oImg) {
+                        oImg.set({ left: 100, top: 100, angle: 0 });
+                        oImg.scale(1);
+                        state.canvas.add(oImg);  
+                    });       
+                    break;  
                 default:
                     break;
             }
