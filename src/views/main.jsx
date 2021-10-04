@@ -1,11 +1,11 @@
-import React, {useRef, useState, useEffect} from 'react'
-import { useHistory } from 'react-router';
+import React from 'react'
 import DrawPanelComponent from '../components/drawpanel'
 import ToolbarComponent from '../components/toolbar'
 function Main() {
     return (
         <div>
-            <div className="py-5 vh-100 row">
+            <p className="font-weight-bold text-red font-size-xl pt-5">#NFT DOGE</p>
+            <div className="py-2 panel-height row">              
                 <div className="col-xl-1 col-lg-2 col-md-2 col-sm-3 mb-5">
                     <ToolbarComponent/>
                 </div>

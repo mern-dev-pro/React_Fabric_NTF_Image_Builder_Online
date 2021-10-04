@@ -19,3 +19,15 @@
 #dropdown-basic:focus{
     outline: none;
 }
+.font-weight-bold{
+    font-weight:900
+}
+.text-red{
+    color: #ff0000;
+}
+.font-size-xl{
+    font-size: 40px;
+}
+.panel-height{
+    height: calc( 100vh - 220px );
+}

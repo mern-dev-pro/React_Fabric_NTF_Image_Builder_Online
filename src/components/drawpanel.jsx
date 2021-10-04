@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { fabric } from 'fabric';
 import { useDispatch } from 'react-redux';
+import DogImage from '../assets/imgs/background/dog.svg';
 
 const DrawPanelComponent = props => {
   const containerRef = useRef(null);
@@ -9,6 +10,15 @@ const DrawPanelComponent = props => {
     var canvas = new fabric.Canvas('canvas');
     canvas.setWidth(containerRef.current.offsetWidth);
     canvas.setHeight(containerRef.current.offsetHeight);
+    var center = canvas.getCenter();
+    canvas.setBackgroundImage(DogImage, canvas.renderAll.bind(canvas), {
+      scaleX:1,
+      scaleY:1,
+      top: center.top,
+      left: center.left,
+      originX: 'center',
+      originY: 'center'
+    });
     fabric.Object.prototype.transparentCorners = true;
     fabric.Object.prototype.cornerColor = 'blue';
     fabric.Object.prototype.cornerStyle = 'circle';

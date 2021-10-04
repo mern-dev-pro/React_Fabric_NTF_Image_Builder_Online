@@ -1,6 +1,7 @@
 import { fabric } from "fabric";
 import { combineReducers } from "redux";
 import { AddCircle, AddRectFunc, AddText, AddTriangle } from "../shared/draw";
+import GlassesIcon from '../assets/imgs/props/glass.svg'
 
 function setReducer(state = { canvas: null, color:"#ff0000" }, action) {
     switch (action.type) {
@@ -28,6 +29,23 @@ function setReducer(state = { canvas: null, color:"#ff0000" }, action) {
                     break;
                 case "CIRCLE":
                     AddCircle( state.canvas, action.color);                    
+                    break;
+                default:
+                    break;
+            }
+            return { ...state };
+        }
+        case "PROPS": {
+            if(!state.canvas){
+                return state;
+            }
+            switch (action.props) {
+                case "GLASSES":
+                    fabric.Image.fromURL(GlassesIcon, function(oImg) {
+                        oImg.set({ left: 100, top: 100, angle: 10 });
+                        oImg.scale(5);
+                        state.canvas.add(oImg);  
+                    });       
                     break;
                 default:
                     break;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ColorPicker, useColor } from "react-color-palette";
 import CursorIcon from '../assets/imgs/icons/Cursor.svg';
-import RectangleIcon from '../assets/imgs/icons/Rectangle.svg';
+import GlassIcon from '../assets/imgs/props/glass.svg';
 import TextIcon from '../assets/imgs/icons/T.svg';
 import BrushIcon from '../assets/imgs/icons/Brush.svg';
 import ColorIcon from '../assets/imgs/icons/color.png';
@@ -36,51 +36,75 @@ function ToolbarComponent() {
         {
             name: "CURSOR",
             icon: CursorIcon,
+            type: "button",
             onClick: () => { dispatch({type: 'CURSOR'}); setSelectedTool('CURSOR') }
         },
         {
             name: "SHAPE",
             icon: ShapeIcon,
+            type: "dropdown",
+            items: [
+                {label: "Rect", value: "RECT"},
+                {label: "Triangle", value: "TRIANGLE"},
+                {label: "circle", value: "CIRCLE"},
+            ],
             onClick: (type) => { setSelectedTool('SHAPE'); dispatch({type: 'SHAPE', color: color?.hex, shape: type}); } 
+        },
+        {
+            name: "PROPS",
+            icon: GlassIcon,
+            type: "dropdown",
+            items: [
+                {label: "Glasses", value: "GLASSES"},
+            ],
+            onClick: (type) => { setSelectedTool('PROPS'); dispatch({type: 'PROPS', color: color?.hex, props: type}); } 
         },
         {
             name: "TEXT",
             icon: TextIcon,
+            type: "button",
             onClick: () => { dispatch({type: 'TEXT', color: color?.hex}); setSelectedTool('TEXT') }
         },
         {
             name: "BRUSH",
             icon: BrushIcon,
+            type: "button",
             onClick: () => { dispatch({type: 'BRUSH', color: color?.hex}); setSelectedTool('BRUSH') }
         },
         {
             name: "COLOR",
             icon: ColorIcon,
+            type: "button",
             onClick: () => {handleShow()}
         },
         {
             name: "SPRAY",
             icon: SprayIcon,
+            type: "button",
             onClick: () => { dispatch({type: 'SPRAY',color: color?.hex}); setSelectedTool('SPRAY') }
         },
         {
             name: "ERASER",
             icon: EraseIcon,
+            type: "button",
             onClick: () => { dispatch({type: 'ERASER'}); setSelectedTool('ERASER') }
         },
         {
             name: "IMAGE",
             icon: ImageIcon,
+            type: "button",
             onClick: () => { setSelectedTool('IMAGE') }
         },  
         {
             name: "CLEAR",
             icon: ClearIcon,
+            type: "button",
             onClick: () => { dispatch({type: 'CLEAR'}); setSelectedTool('CLEAR') }
         },
         {
             name: "DOWNLOAD",
             icon: DownloadIcon,
+            type: "button",
             onClick: () => { dispatch({type: 'DOWNLOAD'}); }
         },  
     ]
@@ -90,7 +114,7 @@ function ToolbarComponent() {
                 buttons.map( button => (
                     <div className="text-center py-2" key={button.name}>
                         {
-                            (button.name==="SHAPE") ? <Dropdown>
+                            (button.type === "dropdown") ? <Dropdown>
                                 <Dropdown.Toggle 
                                     variant="success" 
                                     id="dropdown-basic" 
@@ -99,11 +123,13 @@ function ToolbarComponent() {
                                     <img src={button.icon} className="icon"/>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu>
-                                    <Dropdown.Item onClick={() => {button.onClick("RECT")}}>Rect</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => {button.onClick("TRIANGLE")}}>Triangle</Dropdown.Item>
-                                    <Dropdown.Item onClick={() => {button.onClick("CIRCLE")}}>Circle</Dropdown.Item>
+                                    {
+                                        button.items.map(item => (
+                                            <Dropdown.Item key={item.label} onClick={() => {button.onClick(item.value)}}>{item.label}</Dropdown.Item>
+                                        ))
+                                    }
                                 </Dropdown.Menu>
-                            </Dropdown>: <label>
+                            </Dropdown>: <label>    
                                 <div className="toolbar-button cursor-pointer p-2" onClick={button.onClick} style={{boxShadow: (selectedTool===button.name)?"inset 0px 3px 6px #00000029": ""}}>
                                     <img src={button.icon} className="icon"/>
                                 </div>
