@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { fabric } from 'fabric';
 import { useDispatch } from 'react-redux';
 import DogImage from '../assets/imgs/background/dog.svg';
+import { AddText } from '../shared/draw';
 
 const DrawPanelComponent = props => {
   const containerRef = useRef(null);
@@ -10,6 +11,13 @@ const DrawPanelComponent = props => {
     var canvas = new fabric.Canvas('canvas');
     canvas.setWidth(containerRef.current.offsetWidth);
     canvas.setHeight(containerRef.current.offsetHeight);
+    canvas.add(new fabric.Text('very tips, much thanks 🐕\nDLgEWDm7k12iPxMjpxteucPNH5qpFQdTqS', { 
+      left: 30,
+      top: (containerRef.current.offsetHeight - 50),
+      fontFamily: 'arial black',
+      fill: "#000000",
+      fontSize: 15
+    }));
     var center = canvas.getCenter();
     canvas.setBackgroundImage(DogImage, canvas.renderAll.bind(canvas), {
       scaleX:0.7,
